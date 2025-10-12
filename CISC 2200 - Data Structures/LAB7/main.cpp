@@ -32,8 +32,54 @@ int main(){
     }
     
     list.recPrint();
-    list.recGetLength();
+    cout << endl;
+    cout << "recGetLength(): " << endl;
+    cout << list.recGetLength() << endl;
+    cout << endl;
+    cout << "recReversePrint(): " << endl;
+    list.recReversePrint();
+    cout << endl;
+    int searchNum;
+    cin >> searchNum;
+    cout << "recSearchFor(" << searchNum << "): " << endl;
+    Link* found = list.recSearchFor(searchNum);
+    if (found != NULL){
+        found->displayLink();
+        cout << "was found" << endl;}
+    else cout << searchNum <<" was not found" << endl;
+    cout << endl;
+    list.recPrint();
+    int removeNum;
+    cin >> removeNum;
+    cout << "recRemoveFirst(" << removeNum << "):" << endl;
+    list.recRemoveFirst(removeNum);
+    // Try to find the removed value
+    Link* foundAfter = list.recSearchFor(removeNum);
+    if (foundAfter != NULL) {
+        foundAfter->displayLink();
+        cout << "was found" << endl;
+    } else {
+        cout << removeNum << " was not found" << endl;
+    }
+    list.recReversePrint();
+    cout << endl;
 
+    cout << "recRemoveAll(" << removeNum << "):" << endl;
+    list.recRemoveAll(removeNum);
+    // Try to find the removed value
+    Link* foundAllAfter = list.recSearchFor(removeNum);
+    if (foundAllAfter != NULL) {
+        foundAllAfter->displayLink();
+        cout << "was found" << endl;
+    } else {
+        cout << removeNum << " was not found" << endl;
+    }
+    cout << endl;
+    list.recReversePrint();
+
+
+    
+   
 
 
 

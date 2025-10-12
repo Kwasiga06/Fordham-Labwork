@@ -130,6 +130,21 @@ public:
         return node;
     }
 
+    void recRemoveAll(int value) {
+        pFirst = recRemoveAll(pFirst, value);
+    }
+
+    Link* recRemoveAll(Link* node, int value) {
+        if (node == NULL) return NULL;
+        node->pNext = recRemoveAll(node->pNext, value);
+        if (node->iData == value) {
+            Link* next = node->pNext;
+            delete node;
+            return next;
+        }
+        return node;
+    }
+
     Link * recSearchFor(Link * node, int value){
         if (node == NULL || node->iData == value) return node;
         else return recSearchFor(node->pNext, value);
