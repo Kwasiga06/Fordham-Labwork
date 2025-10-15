@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>popupMain.html</title>
+    <title>Popup Main</title>
+    <script>
+        let popupWindow
+    window.addEventListener('load', function() {
+        popupWindow = window.open("popupWin.html", "", "width=50,height=50,right=50,top=50");
+    });
+    </script>
 </head>
 <body>
-    <h1>Welcome to My Basic HTML Page</h1>
-    <p>This is a simple HTML page.</p>
-    <script>
-        window.open("popup.html", " ", "width=200,height=300,left=100,top=100");
-    </script>
+    <h2>
+        <a href="#" onclick="popupWindow.close(); return false;">Close the popup window</a>
+    </h2>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup Window</title>
+    <style>
+    body { font-family: Arial, sans-serif; padding:12px; }
+    .link-btn { color:#0078d4; text-decoration:none; cursor:pointer; }
+    fieldset { border:1px solid #ddd; padding:8px; }
+    label { display:block; margin:6px 0; cursor:pointer; }
+  </style>
+  <script>
+    function openPage(path) {
+      if (window.opener && !window.opener.closed) {
+        window.opener.location.href = path;
+      } else {
+        alert("Main window is not available!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <form id="selector">
+    <fieldset>
+      <legend>Select a page to open in the main window</legend>
+
+      <label>
+        <input type="radio" name="page" onclick="openPage('../hw3/bio1.html')">
+        My Bio
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="page" onclick="openPage('../hw5/multi.html')">
+        Multiplication Page
+      </label>
+    </fieldset>
+  </form>
+</body>
+</html>
