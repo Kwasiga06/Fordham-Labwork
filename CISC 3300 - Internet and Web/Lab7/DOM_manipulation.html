@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="DOM.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">
+            Dom Maniuplation
+        </h1>
+        <p class="intro">
+            Exploring how to use and interact with the Document Object Model (DOM) using JavaScript
+        </p>
+        <h2>
+            Courses Taking this Year
+        </h2>
+        <ul id="coures">
+            <li>MATH 1207 - Calculus II</li>
+            <li>Math 2001 - Discrete Mathematics</li>
+            <li>CISC 2200 - Data Structures</li>
+            <li>CISC 3300 - Internet and Web Programming</li>
+        </ul>
+        <h2>Interests</h2>
+        <ul class="interests">
+            <li>Music</li>
+            <li>Sports</li>
+        </ul>
+        <h2>Links:</h2>
+        <ul id="otherworks">
+            <li><a href="../hw5/mult.html" target="_blank">Multiplication Table</a></li>
+            <li><a href="../hw3/bio1.html" target="_blank">My Bio</a></li>
+        </ul>
+        <p> Here's my website: <a id="mylink" href="https://www.kwasiga.com">My Portfolio</a></p>
+
+        <section aria-labelledby="Languages">
+			<h2 id="languages">Languages</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Skill</th>
+						<th>Proficiency</th>
+						<th>Years</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-label="Skill">Python</td>
+						<td data-label="Proficiency">Intermediate</td>
+						<td data-label="Years">3</td>
+					</tr>
+					<tr>
+						<td data-label="Skill">C++</td>
+						<td data-label="Proficiency">Intermediate</td>
+						<td data-label="Years">2</td>
+					</tr>
+					<tr>
+						<td data-label="Skill">JavaScript / Web</td>
+						<td data-label="Proficiency">Beginner → Intermediate</td>
+						<td data-label="Years">1</td>
+					</tr>
+					<tr>
+						<td data-label="Skill">Linux / Security basics</td>
+						<td data-label="Proficiency">Intermediate</td>
+						<td data-label="Years">1</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+        <section class="buttons">
+            <button id="displayBtn">Display Content</button>
+            <button id="changeBtn">Change Content</button>
+        </section>
+    </div>
+    <script>
+    const title = document.getElementById("title");
+    const display = document.getElementById("displayBtn");
+    const change = document.getElementById("changeBtn");
+
+    display.addEventListener("click", function(){
+        let output = "";
+
+        output += "Title: " + title.innerHTML + "\n";
+
+        const intros = document.getElementsByClassName("intro");
+        for (let i = 0; i < intros.length; i++) {
+            output += "Intro: " + intros[i].innerHTML + "\n";
+        }
+
+        const interests = document.querySelectorAll(".interests li");
+        interests.forEach((item, i) => {
+            output += "Interest " + (i + 1) + ": " + item.innerHTML + "\n";
+        });
+
+        const link = document.querySelector("#mylink");
+        output += "Link: " + link.innerHTML + " (" + link.href + ")\n";
+
+        const table = document.querySelector(".table");
+        if (table) {
+            output += "Table:\n" + table.innerText + "\n";
+        }
+
+        alert(output);
+    });
+
+    change.addEventListener("click", function(){
+        title.innerHTML = "DOM Manipulation (Updated!)";
+        document.getElementsByClassName("intro")[0].innerHTML = "DOM has been updated using JavaScript!";
+
+        const interests = document.querySelectorAll(".interests li");
+        if (interests.length > 1){
+            interests[1].innerHTML = "Programming (Updated!)";
+        }
+
+        const table = document.querySelector(".table");
+        if (table){
+            table.rows[3].cells[1].innerHTML = "Advanced";
+        }
+
+        alert("Changes have been made!");
+    });
+</script>
+
+</body>
+</html>

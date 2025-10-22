@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form1 Homework</title>
+     <link rel="stylesheet" href="forms.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <h2>User Information Form</h2>
+
+    <form action="https://storm.cis.fordham.edu/~sultan/cgi-bin/util/formTest.cgi" method="get">
+
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your full name" required>
+        <br><br>
+
+        <div>
+        <p style="font-size:30px;">What year are you?:</p>
+        <input type="radio" id="freshman" name="year" value="freshman" required>
+        <label for="freshman">Freshman</label>
+        <input type="radio" id="sophomore" name="year" value="sophomore">
+        <label for="sophomore">Sophomore</label>
+        <input type="radio" id="junior" name="year" value="junior">
+        <label for="junior">Junior</label>
+        <input type="radio" id="senior" name="year" value="senior">
+        <label for="senior">Senior</label>
+        <br><br>
+      </div>
+
+        <p style="font-size:30px;">Which device do you use?:</p>
+        <input type="checkbox" id="laptop" name="device" value="laptop">
+        <label for="laptop">Laptop</label>
+        <input type="checkbox" id="tablet" name="device" value="tablet">
+        <label for="tablet">Tablet</label>
+        <input type="checkbox" id="phone" name="device" value="phone">
+        <label for="phone">Phone</label>
+        <br><br>
+
+        <label for="major">What is your major?:</label>
+        <select id="major" name="major" required>
+            <option value="">--Choose one--</option>
+            <option value="cs">Computer Science</option>
+            <option value="math">Mathematics</option>
+            <option value="econ">Economics</option>
+            <option value="eng">Engineering</option>
+        </select>
+        <br><br>
+
+        <label for="skills">Programming skills?:</label><br>
+        <select id="skills" name="skills" multiple size="10" required>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="js">JavaScript</option>
+            <option value="sql">SQL</option>
+        </select>
+        <br><br>
+
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" rows="5" cols="35" required></textarea>
+        <br><br>
+
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" min="16" max="100" required>
+        <br><br>
+
+        <label for="satisfaction">Current Volume Level:</label>
+        <input type="range" id="volume range" name="volume" min="0" max="10">
+        <br><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required>
+        <br><br>
+
+        <label for="meeting">Preferred Meeting Time:</label>
+        <input type="time" id="meeting" name="meeting">
+        <br><br>
+
+        <button type="submit">Send Form</button>
+        <button type="reset">Clear</button> 
+    </form>
+</body>
+</html>

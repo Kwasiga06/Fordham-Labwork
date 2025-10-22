@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form2 Homework</title>
+    <link rel="stylesheet" href="DOM.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <h2>User Information Form</h2>
+    <form action="https://storm.cis.fordham.edu/~sultan/cgi-bin/util/formProc.cgi" method="post">
+        <div id="absolute-box">Please fill out all required fields!</div>
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your full name" required>
+        <br><br>
+
+        <div class="radio-group">
+            <p>What year are you?:</p>
+            <input type="radio" id="freshman" name="year" value="freshman" required>
+            <label for="freshman">Freshman</label>
+            <input type="radio" id="sophomore" name="year" value="sophomore">
+            <label for="sophomore">Sophomore</label>
+            <input type="radio" id="junior" name="year" value="junior">
+            <label for="junior">Junior</label>
+            <input type="radio" id="senior" name="year" value="senior">
+            <label for="senior">Senior</label>
+        </div>
+
+        <div class="checkbox-group">
+            <p>Which device do you use?:</p>
+            <input type="checkbox" id="laptop" name="device" value="laptop">
+            <label for="laptop">Laptop</label>
+            <input type="checkbox" id="tablet" name="device" value="tablet">
+            <label for="tablet">Tablet</label>
+            <input type="checkbox" id="phone" name="device" value="phone">
+            <label for="phone">Phone</label>
+        </div>
+
+        <label for="major">What is your major?:</label>
+        <select id="major" name="major" required>
+            <option value="">--Choose one--</option>
+            <option value="cs">Computer Science</option>
+            <option value="math">Mathematics</option>
+            <option value="econ">Economics</option>
+            <option value="eng">Engineering</option>
+        </select>
+        <br><br>
+
+        <label for="skills">Programming skills?:</label><br>
+        <select id="skills" name="skills" multiple size="10" required>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="js">JavaScript</option>
+            <option value="sql">SQL</option>
+        </select>
+        <br><br>
+
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" rows="5" cols="35" required></textarea>
+        <br><br>
+
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" min="16" max="100" required>
+        <br><br>
+
+        <label for="satisfaction">Current Volume Level:</label>
+        <input type="range" id="volume" name="volume" min="0" max="10">
+        <br><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required>
+        <br><br>
+
+        <label for="meeting">Preferred Meeting Time:</label>
+        <input type="time" id="meeting" name="meeting">
+        <br><br>
+
+        <input type="hidden" name="_EMAIL" value="kag7@fordham.edu">
+        <input type="hidden" name="_FILE" value="/home/students/kag7/public_html/CISC3300/hw2/formResults.txt">
+        <input type ="hidden" name="_REDIRECT" value="https://storm.cis.fordham.edu/~kag7/CISC3300/hw3/bio1.html">
+    
+        <div class="btn-group">
+            <button type="submit">Send Form</button>
+            <button type="reset">Clear</button>
+        </div>
+    </form>
+</body>
+</html>

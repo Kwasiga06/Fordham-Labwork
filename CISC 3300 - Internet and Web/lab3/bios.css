@@ -1,0 +1,99 @@
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #dcdcdc;
+  --accent: #9ad0ff;
+  --panel: #111111;
+  --border: #333333;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 20px;
+  background: var(--panel);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+h2 {
+  color: var(--text);
+  margin-top: 18px;
+  font-weight: 500;
+}
+
+p, li {
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 8px 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  margin: 12px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: transparent;
+}
+
+.skills-table th,
+.skills-table td {
+  padding: 10px;
+  border: 1px solid var(--border);
+  text-align: left;
+  color: var(--muted);
+}
+
+.skills-table th {
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.skills-table thead{
+  background: rgba(255,255,255,0.03);
+}
+
+.skills-table th, .skills-table td{
+  padding:12px 14px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+  color:var(--muted);
+}
+
+.skills-table th{
+  color:var(--accent);
+  font-weight:600;
+  font-size:0.95rem;
+}
