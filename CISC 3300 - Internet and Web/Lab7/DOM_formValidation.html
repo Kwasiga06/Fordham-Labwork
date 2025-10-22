@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Form2 Homework</title>
-    <link rel="stylesheet" href="DOM.css">
+    <link rel="stylesheet" href="form.css">
     <style type="text/css">
     </style>
 </head>
 <body>
-    <h2>User Information Form</h2>
+    <h2>DOM Form</h2>
     <form action="https://storm.cis.fordham.edu/~sultan/cgi-bin/util/formProc.cgi" method="post">
-        <div id="absolute-box">Please fill out all required fields!</div>
+        <div id="absolute-box">Please fill out all fields!</div>
         <label for="username">Name:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your full name" required>
+        <input type="text" id="username" name="username" placeholder="Enter your full name">
         <br><br>
 
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" name="age" min="16" max="100">
+        <br><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday">
+        <br><br>
         <div class="radio-group">
             <p>What year are you?:</p>
-            <input type="radio" id="freshman" name="year" value="freshman" required>
+            <input type="radio" id="freshman" name="year" value="freshman">
             <label for="freshman">Freshman</label>
             <input type="radio" id="sophomore" name="year" value="sophomore">
             <label for="sophomore">Sophomore</label>
@@ -38,7 +45,7 @@
         </div>
 
         <label for="major">What is your major?:</label>
-        <select id="major" name="major" required>
+        <select id="major" name="major">
             <option value="">--Choose one--</option>
             <option value="cs">Computer Science</option>
             <option value="math">Mathematics</option>
@@ -48,7 +55,7 @@
         <br><br>
 
         <label for="skills">Programming skills?:</label><br>
-        <select id="skills" name="skills" multiple size="10" required>
+        <select id="skills" name="skills" multiple size="10">
             <option value="python">Python</option>
             <option value="java">Java</option>
             <option value="cpp">C++</option>
@@ -58,19 +65,7 @@
         <br><br>
 
         <label for="bio">Bio:</label><br>
-        <textarea id="bio" name="bio" rows="5" cols="35" required></textarea>
-        <br><br>
-
-        <label for="age">Enter your age:</label>
-        <input type="number" id="age" name="age" min="16" max="100" required>
-        <br><br>
-
-        <label for="satisfaction">Current Volume Level:</label>
-        <input type="range" id="volume" name="volume" min="0" max="10">
-        <br><br>
-
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday" required>
+        <textarea id="bio" name="bio" rows="5" cols="35"></textarea>
         <br><br>
 
         <label for="meeting">Preferred Meeting Time:</label>
@@ -78,8 +73,7 @@
         <br><br>
 
         <input type="hidden" name="_EMAIL" value="kag7@fordham.edu">
-        <input type="hidden" name="_FILE" value="/home/students/kag7/public_html/CISC3300/hw2/formResults.txt">
-        <input type ="hidden" name="_REDIRECT" value="https://storm.cis.fordham.edu/~kag7/CISC3300/hw3/bio1.html">
+        <input type="hidden" name="_FILE" value="/home/students/kag7/public_html/CISC3300/hw7/formResults.txt">
     
         <div class="btn-group">
             <button type="submit">Send Form</button>
@@ -87,4 +81,38 @@
         </div>
     </form>
 </body>
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(event) {
+    const name = document.getElementById("username").value.trim();
+    if (name === "") { alert("Please enter your name."); event.preventDefault(); return; }
+
+    if (document.getElementById("age").value === "") { alert("Please enter your age."); event.preventDefault(); return; }
+
+    if (document.getElementById("birthday").value === "") { alert("Please enter your birthday."); event.preventDefault(); return; }
+    if (document.getElementById("meeting").value === "") { alert("Please pick a meeting time."); event.preventDefault(); return; }
+
+    const years = document.getElementsByName("year");
+    if (![...years].some(y => y.checked)) { alert("Please select your year."); event.preventDefault(); return; }
+
+    const devices = document.getElementsByName("device");
+    if (![...devices].some(d => d.checked)) { alert("Please select at least one device."); event.preventDefault(); return; }
+
+    const major = document.getElementById("major").value;
+    if (major === "") { alert("Please select your major."); event.preventDefault(); return; }
+
+    const skills = document.getElementById("skills");
+    if (![...skills.options].some(opt => opt.selected)) { alert("Please select at least one skill."); event.preventDefault(); return; }
+
+    const bio = document.getElementById("bio").value.trim();
+    if (bio === "") { alert("Please write your bio."); event.preventDefault(); return; }
+
+
+    if (document.getElementById("meeting").value === "") { alert("Please pick a meeting time."); event.preventDefault(); return; }
+
+    alert("All fields are filled! Form will be submitted now.");
+  });
+</script>
 </html>
