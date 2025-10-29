@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="dom.css">
+    <style>
+        #slideImage {
+            max-height: 600px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <img id="slideImage" src="img/image1.jpg" alt="Slideshow Image">
+        <div class="controls">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            <button id="startBtn">Start Slideshow</button>
+            <button id="stopBtn">Stop Slideshow</button>
+        </div>
+    </div>
+
+    <script>
+        var next = 1; 
+        var total = 10;       
+        var picArray = [];
+        var slideshowInterval = null;
+
+        for (var i = 1; i <= total; i++) {
+            picArray[i] = new Image();
+            picArray[i].src = 'img/image' + i + '.jpg'; 
+        }
+
+        function updateImage() {
+            document.getElementById('slideImage').src = picArray[next].src; 
+        }
+
+        function nextImage() {
+            next = next + 1;
+            if (next > total) next = 1;
+            updateImage();
+        }
+
+        function prevImage() {
+            next = next - 1;
+            if (next < 1) next = total;
+            updateImage();
+        }
+
+        function startSlideshow() {
+            if (!slideshowInterval) {
+                slideshowInterval = setInterval(nextImage, 2000);
+            }
+        }
+
+        function stopSlideshow() {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                stopSlideshow();
+                prevImage();
+            });
+            
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                stopSlideshow();
+                nextImage();
+            });
+            
+            document.getElementById('startBtn').addEventListener('click', startSlideshow);
+            document.getElementById('stopBtn').addEventListener('click', stopSlideshow);
+        });
+    </script>
+</body>
+</html>
